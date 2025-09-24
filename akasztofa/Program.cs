@@ -87,10 +87,13 @@ namespace akasztofa
                    
                     szitu = "A szó tartalmazza a betűt :)\n";
                     
+
                 }
                 else if (betu.Length > 1)
                 {
+                     
                     szitu = "Egyszerre csak egy betűt írj be.";
+                   
                 }
                 
                 else
@@ -100,8 +103,9 @@ namespace akasztofa
                     szitu = "A szó nem tartalmazza a megadott betűt. :(\n";
                     
                 }
+                
 
-                     if (elet == 0)
+                if (elet == 0)
                     {
                         szitu = "Meghaltál. A kitalálandó szó {szo} volt";
                         break;
