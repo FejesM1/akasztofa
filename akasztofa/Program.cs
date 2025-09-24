@@ -14,7 +14,7 @@ namespace akasztofa
         
         static void Main(string[] args)
         {
-            
+            Console.ForegroundColor = ConsoleColor.Cyan;
             int elet = 10;
             string betu = "";
             betu = betu.ToLower();
@@ -30,7 +30,6 @@ namespace akasztofa
             };
             
                 string szitu = "";
-                bool kilepes = true;
                 Random rnd = new Random();
                 string szo = szavak[rnd.Next(szavak.Length)];
                 char[] kitalalnivalo = new char[szo.Length];
@@ -38,28 +37,42 @@ namespace akasztofa
                 {
                     kitalalnivalo[i] = '_';
                 }
-                
-                do
+                Console.Title = "Akasztófa játék";
+
+            
+
+            do
                 {
-                   Console.WriteLine(szitu);
-                    Console.WriteLine(szo);
+                Console.WriteLine("╔══════════════════════════════╗");
+                Console.WriteLine("║        AKASZTÓFA JÁTÉK       ║");
+                Console.WriteLine("╠══════════════════════════════╣");
                     Console.WriteLine($"Élet: {elet}");
-                    for (int i = 0; i < szo.Length; i++)
+                Console.WriteLine("╚══════════════════════════════╝");
+                Console.WriteLine(szitu);
+                for (int i = 0; i < szo.Length; i++)
                     {
                         Console.Write(kitalalnivalo[i] + " ");
                     }
 
                     Console.WriteLine("\nAdjon meg egy betűt: ");
-                    betu = Console.ReadLine();
+                    betu = Console.ReadLine().ToLower();
                     
 
                 if (betu == "")
                 {
-                    Console.WriteLine("Biztos ki akar lépni?");
-
-                    if (Console.ReadLine() == "") break;
-                    
-                }else {kilepes == true}
+                    Console.WriteLine("Biztosan ki akarsz lépni? (i/n): ");
+                    string valasz = Console.ReadLine().ToLower();
+                    if (valasz == "i")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        szitu = "Nem léptél ki.";
+                        continue;
+                    }
+                }
+               
                 if (szo.Contains(betu))
                 {
                     
@@ -71,7 +84,9 @@ namespace akasztofa
                          
                         }
                     }
-                    szitu = "A szó tartalmazza a betűt\n";
+                   
+                    szitu = "A szó tartalmazza a betűt :)\n";
+                    
                 }
                 else if (betu.Length > 1)
                 {
@@ -81,7 +96,9 @@ namespace akasztofa
                 else
                 {
                     elet--;
-                    szitu = "A szó nem tartalmazza a megadott betűt\n";
+                    
+                    szitu = "A szó nem tartalmazza a megadott betűt. :(\n";
+                    
                 }
 
                      if (elet == 0)
