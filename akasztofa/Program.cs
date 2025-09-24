@@ -9,6 +9,7 @@ namespace akasztofa
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
 
+            Console.Title = "Akasztófa játék";
             int elet = 6; 
             string betu = "";
 
